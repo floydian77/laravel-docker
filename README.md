@@ -1,4 +1,12 @@
-# Docker
+# Docker container for Laravel
+
+## Ssl certificate
+
+```bash
+$ ./gen-ssl-cert.sh
+```
+
+## Docker
 
 ```bash
 $ cd docker
