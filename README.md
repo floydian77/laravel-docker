@@ -1,24 +1,31 @@
 # Docker container for Laravel
 
-## Ssl certificate
+Docker container for laravel with self signed ssl certificate, trusted by curl inside laravel container.
+
+## Installation
+
+Download a laravel release from https://github.com/laravel/laravel/releases and extract it.
+Clone this repository inside your laravel project.
+
+### Ssl certificate
 
 ```bash
-$ cd ssl
+$ cd docker/ssl
 $ cp openssl.cnf.example openssl.cnf
 $ ./gen-cert.sh
 ```
 
-## Docker
+### Docker
 
 ```bash
 $ cd docker
 $ cp .env.example .env
 
 $ docker-compose up -d [--build]
-$ docker-compose exec app bash
+$ docker-compose exec php bash
 ```
 
-## Laravel
+### Laravel
 
 ```bash
 $ composer install
