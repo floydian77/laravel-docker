@@ -2,10 +2,10 @@ version: '2'
 services:
 
   # The Application
-  app:
+  php:
     build:
       context: ./
-      dockerfile: app.dockerfile
+      dockerfile: php.dockerfile
     working_dir: /var/www
     volumes:
     - ../:/var/www
@@ -22,7 +22,7 @@ services:
       dockerfile: web.dockerfile
     working_dir: /var/www
     volumes_from:
-    - app
+    - php
     ports:
     - ${NGINX_HOST_HTTP_PORT}:80
     - ${NGINX_HOST_HTTPS_PORT}:443
