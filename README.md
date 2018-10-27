@@ -3,7 +3,9 @@
 ## Ssl certificate
 
 ```bash
-$ ./gen-ssl-cert.sh
+$ cd ssl
+$ cp openssl.cnf.example openssl.cnf
+$ ./gen-cert.sh
 ```
 
 ## Docker

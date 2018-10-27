@@ -1,6 +1,6 @@
 FROM php:7.2-fpm
 
-COPY ssl/nginx.crt /usr/local/share/ca-certificates/
+COPY ssl/server.crt /usr/local/share/ca-certificates/
 
 RUN apt-get update && apt-get install -y libmcrypt-dev zlib1g-dev mysql-client libpng-dev gnupg unzip \
     --no-install-recommends \
