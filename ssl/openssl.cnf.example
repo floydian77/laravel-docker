@@ -9,7 +9,7 @@ ST = <Province>
 L = <City>
 O = <Organisation>
 OU = <Organizational Unit>
-CN = app
+CN = nginx
 
 [v3_req]
 subjectKeyIdentifier = hash
@@ -18,7 +18,7 @@ basicConstraints = CA:TRUE
 subjectAltName = @alt_names
 
 [alt_names]
-DNS.1 = app
+DNS.1 = nginx
 DNS.2 = localhost
 #DNS.3 = <3rd Domain>
 #DNS.4 = <4th Domain>
