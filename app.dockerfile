@@ -1,5 +1,8 @@
 FROM php:7.2-fpm
 
+ARG DOCKER_USER_UID
+ARG DOCKER_USER_GID
+
 RUN apt-get update && apt-get install -y \
     libmcrypt-dev \
     zlib1g-dev \
@@ -19,9 +22,9 @@ RUN docker-php-ext-install -j$(nproc) zip iconv gd pdo_mysql
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-RUN mkdir /.composer && chown ${DOCKER_USER_UID}:${DOCKER_USER_GID} /.composer \
-    && mkdir /.npm && chown ${DOCKER_USER_UID}:${DOCKER_USER_GID} /.npm \
-    && mkdir /.config && chown ${DOCKER_USER_UID}:${DOCKER_USER_GID} /.config
+RUN mkdir /.composer && chown $DOCKER_USER_UID:$DOCKER_USER_GID /.composer \
+    && mkdir /.npm && chown $DOCKER_USER_UID:$DOCKER_USER_GID /.npm \
+    && mkdir /.config && chown $DOCKER_USER_UID:$DOCKER_USER_GID /.config
 
 COPY ssl/server.crt /usr/local/share/ca-certificates/
 RUN update-ca-certificates --fresh

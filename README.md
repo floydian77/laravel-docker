@@ -21,15 +21,39 @@ $ ./gen-cert.sh
 $ cd docker
 $ cp .env.example .env
 
-$ docker-compose up -d [--build]
-$ docker-compose exec php bash
+$ docker-compose up -d --build
 ```
 
 ### Laravel
 
+`.env`
+```
+...
+DB_HOST=mysqldev
+DB_DATABASE=homestead
+...
+```
+
 ```bash
+$ docker-compose exec app bash
 $ composer install
 $ cp .env.example .env
 $ php artisan key:generate
 $ php artisan migrate
+```
+
+#### Testing
+
+`.env`
+```
+...
+DB_HOST=mysqltest
+DB_DATABASE=testing
+...
+```
+
+```bash
+$ cp .env.example .env.testing
+$ php artisan key:generate --env=testing
+$ php artisan migrate --env=testing
 ```

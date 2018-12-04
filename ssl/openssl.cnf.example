@@ -9,7 +9,7 @@ ST = <Province>
 L = <City>
 O = <Organisation>
 OU = <Organizational Unit>
-CN = <Primary Domain>
+CN = app
 
 [v3_req]
 subjectKeyIdentifier = hash
@@ -18,8 +18,8 @@ basicConstraints = CA:TRUE
 subjectAltName = @alt_names
 
 [alt_names]
-DNS.1 = <Primary Domain>
-DNS.2 = <2nd Domain>
-DNS.3 = <3rd Domain>
-DNS.4 = <4th Domain>
+DNS.1 = app
+DNS.2 = localhost
+#DNS.3 = <3rd Domain>
+#DNS.4 = <4th Domain>
 ## on so on, and so forth.
